@@ -8,8 +8,8 @@ const jwtAuth = (req, res, next) => {
   }
 
   try {
-    const writerPayload = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = writerPayload;
+    const payload = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = payload;
   } catch (error) {}
 
   return next();
